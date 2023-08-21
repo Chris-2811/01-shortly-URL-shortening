@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+.section-container {
+  @apply max-w-[1110px] mx-auto px-6 text-center;
+}
+
+.btn-primary {
+  @apply bg-cyan rounded-full py-2 px-6 text-white hover:bg-[#9AE3E3];
+}
+
+.btn-primary-2 {
+  @apply bg-cyan rounded-md py-2 px-6 text-white hover:bg-[#9AE3E3];
+}
+
+.card {
+  @apply relative flex-col bg-white p-6 pt-[72px];
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 18px;
+}
+
+html {
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: cyan;
+}
+
+.ficon:hover {
+  filter: invert(53%) sepia(68%) saturate(434%) hue-rotate(121deg)
+    brightness(101%) contrast(94%);
+}
+
+.bg-shorten {
+  background-image: url('./assets/images/bg-shorten-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.logo-white path {
+  fill: white;
+}
+
+#boost {
+  background-image: url('./assets/images/bg-boost-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+@media (min-width: 400px) {
+  .hero-image {
+    min-width: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-shorten {
+    background-image: url('./assets/images/bg-shorten-desktop.svg');
+  }
+
+  #boost {
+    background-image: url('./assets/images/bg-boost-desktop.svg');
+  }
+}
+
+@layer base {
+  h3 {
+    @apply text-[22px] font-bold text-[#34313D] mb-3;
+  }
+}
