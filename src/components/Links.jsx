@@ -13,6 +13,15 @@ function Links() {
 
   function handleChange(e) {
     setText(e.target.value)
+
+    if(e.target.value.length > 60) {
+      setErrorMessage('Please enter a shorter link')
+    }
+
+    if(e.target.value.length < 60) {
+      setErrorMessage('')
+    }
+
   }
 
   async function handleSubmit(e) {
@@ -20,7 +29,11 @@ function Links() {
 
     if (text === '') {
       setErrorMessage('Please add a link')
-    } else {
+    } else if (text.length > 60) {  
+      setErrorMessage('Please enter a shorter link')
+    }
+    
+    else {
       const shortenedLink = await shortenLink(text)
 
       if (shortenedLink) {

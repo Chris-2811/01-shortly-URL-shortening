@@ -14,10 +14,12 @@ function LinkItem({ item }) {
 
   const { deleteItem } = useContext(LinkContext)
 
+  console.log(item.shortenedLink)
+
   return (
     <div className="bg-white relative flex flex-col  p-[16px] md:flex-row md:items-center md:justify-between  mt-6 text-left text-sm">
       <div className="border-b border-[#9E9AA8] md:border-none pb-4 md:pb-0 border-opacity-25 ">
-        <a href="#" className="max-w-sm">
+        <a href={item.newLink} className="max-w-sm" target="_blank">
           {item.newLink}
         </a>
       </div>
@@ -25,14 +27,13 @@ function LinkItem({ item }) {
         <a href={item.shortenedLink} className="text-cyan" target="_blank">
           <p>{item.shortenedLink}</p>
         </a>
-        <a
+        <div
           onClick={handleCopyLink}
-          href="#"
-          className="copy-btn btn-primary-2 inline-block w-full text-center mt-2 md:mr-2 md:mt-0 md:w-[105px]"
+          className="copy-btn btn-primary-2 cursor-pointer inline-block w-full text-center mt-2 md:mr-2 md:mt-0 md:w-[105px]"
           style={{ backgroundColor: copied ? '#3A3054' : '#2BD0D0' }}
         >
           {copied ? 'Copied!' : 'Copy'}
-        </a>
+        </div>
         <FaTimes
           onClick={() => deleteItem(item.id)}
           className="absolute top-3 right-4 md:top-0 md:relative text-xl md:right-[6px] cursor-pointer"
